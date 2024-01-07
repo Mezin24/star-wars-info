@@ -1,8 +1,3 @@
-import { IApiResponse } from "@/types"
-
-export const SWAPI_BASE_URL = "https://swapi.dev/api/"
-export const SWAPI_PEOPLE = "people"
-
 export const getApiResource = async (url: string) => {
   try {
     const response = await fetch(url)
@@ -12,7 +7,7 @@ export const getApiResource = async (url: string) => {
       return false
     }
 
-    const data: IApiResponse = await response.json()
+    const data = await response.json()
     return data
   } catch (error: unknown) {
     if (typeof error === "string") {

@@ -1,11 +1,11 @@
-export interface IApiResponse {
+export interface IPeopleResponse {
   count: number
   next: string | null
   previous: string | null
-  results: IPeople[]
+  results: IPeopleData[]
 }
 
-export interface IPeople {
+export interface IPeopleData {
   birth_year: string
   eye_color: string
   films: string[]
@@ -22,4 +22,11 @@ export interface IPeople {
   starships: string[]
   url: string
   vehicles: string[]
+}
+
+export interface IPeople {
+  name: string
+  url: string
+  id: string
+  imgUrl: string
 }
