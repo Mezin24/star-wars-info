@@ -7,9 +7,9 @@ import {
   URL_IMG_PERSON,
 } from "@/constants/api"
 import { IPeople, IPeopleResponse } from "@/types"
-import { getIdFromUrl } from "@/services/getPeopleData"
+import { getIdFromUrl } from "@services/getPeopleData"
 import PeopleList from "@components/PeoplePage/PeopleList"
-import { withErrorApi } from "@/hoc/withErrorApi"
+import { withErrorApi } from "@hoc/withErrorApi"
 
 const PeoplePage = ({ setIsError }: any) => {
   const [people, setPeople] = useState<IPeople[] | null>(null)
