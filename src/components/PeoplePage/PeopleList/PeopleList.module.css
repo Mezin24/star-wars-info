@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin: var(--spacing-small);
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-white);
+  overflow: hidden;
+  width: 190px;
+}
+.item__link {
+  text-align: center;
+  color: var(--color-black);
+}
+.item__img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: top center;
+}
+.item__text {
+  padding: 16px;
+}

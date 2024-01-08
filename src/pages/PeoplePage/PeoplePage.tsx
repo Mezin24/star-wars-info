@@ -8,13 +8,9 @@ import {
 } from "@/constants/api"
 import { IPeople, IPeopleResponse } from "@/types"
 import { getIdFromUrl } from "@/services/getPeopleData"
+import PeopleList from "@/components/PeoplePage/PeopleList"
 
-export interface IPeoplePageProps {
-  //
-}
-
-const PeoplePage = (props: IPeoplePageProps) => {
-  // const {} = props
+const PeoplePage = () => {
   const [people, setPeople] = useState<IPeople[] | null>(null)
 
   const getResource = useCallback(async () => {
@@ -39,22 +35,7 @@ const PeoplePage = (props: IPeoplePageProps) => {
 
   console.log(people)
 
-  return (
-    <>
-      {people && (
-        <ul>
-          {people.map(({ name, url, id, imgUrl }) => (
-            <li key={id}>
-              <a href={url} target="_blank">
-                {name}
-              </a>
-              <img src={imgUrl} alt={name} />
-            </li>
-          ))}
-        </ul>
-      )}
-    </>
-  )
+  return <>{people && <PeopleList people={people} />}</>
 }
 
 export default PeoplePage

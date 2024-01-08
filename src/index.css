@@ -1,0 +1,32 @@
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-dark-gray: #10100e;
+
+  --border-radius-small: 3px;
+
+  --spacing-small: 20px;
+
+  --font-family-main: sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-dark-gray);
+  font-family: var(--font-family-main);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
