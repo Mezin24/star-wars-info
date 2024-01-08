@@ -1,5 +1,5 @@
-import { IPeople } from "@/types"
 import styles from "./PeopleList.module.css"
+import { IPeople } from "@/types"
 
 export interface IPeopleListProps {
   people: IPeople[]

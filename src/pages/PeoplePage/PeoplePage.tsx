@@ -1,15 +1,14 @@
 import { useCallback, useEffect, useState } from "react"
-import styles from "./PeoplePage.module.css"
-import { getApiResource } from "@/utils/api"
+import { withErrorApi } from "@hoc/withErrorApi"
+import PeopleList from "@components/PeoplePage/PeopleList"
+import { getIdFromUrl } from "@services/getPeopleData"
 import {
   API_PEOPLE,
   GUIDE_IMG_EXTENSION,
   URL_IMG_PERSON,
 } from "@/constants/api"
 import { IPeople, IPeopleResponse } from "@/types"
-import { getIdFromUrl } from "@services/getPeopleData"
-import PeopleList from "@components/PeoplePage/PeopleList"
-import { withErrorApi } from "@hoc/withErrorApi"
+import { getApiResource } from "@/utils/api"
 
 const PeoplePage = ({ setIsError }: any) => {
   const [people, setPeople] = useState<IPeople[] | null>(null)

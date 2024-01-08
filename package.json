@@ -35,6 +35,7 @@
     "@vitejs/plugin-react": "^4.0.0",
     "eslint": "^8.0.0",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.0",
     "jsdom": "^21.1.0",
@@ -50,7 +51,8 @@
       "react-app/jest"
     ],
     "plugins": [
-      "prettier"
+      "prettier",
+      "import"
     ],
     "rules": {
       "prettier/prettier": [
@@ -59,7 +61,20 @@
           "endOfLine": "auto"
         }
       ],
-      "react/jsx-no-target-blank": "off"
+      "react/jsx-no-target-blank": "off",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "index",
+            "sibling",
+            "parent",
+            "internal",
+            "external",
+            "builtin"
+          ]
+        }
+      ]
     }
   },
   "prettier": "prettier-config-nick",

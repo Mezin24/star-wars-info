@@ -4,7 +4,7 @@
 }
 
 .item {
-  margin: var(--spacing-small);
+  margin: var(--spacing-medium);
   border-radius: var(--border-radius-small);
   background-color: var(--color-white);
   overflow: hidden;

@@ -20,12 +20,15 @@
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@app/*": ["src/app/*"],
+      "@static/*": ["src/static/*"],
+      "@styles/*": ["src/styles/*"],
       "@constants/*": ["src/constants/*"],
       "@features/*": ["src/features/*"],
       "@hoc/*": ["src/hoc/*"],
       "@pages/*": ["src/pages/*"],
       "@services/*": ["src/services/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@routes/*": ["src/routes/*"]
     }
   },
   "include": ["src"],
