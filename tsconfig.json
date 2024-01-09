@@ -22,6 +22,7 @@
       "@app/*": ["src/app/*"],
       "@static/*": ["src/static/*"],
       "@styles/*": ["src/styles/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@constants/*": ["src/constants/*"],
       "@features/*": ["src/features/*"],
       "@hoc/*": ["src/hoc/*"],
