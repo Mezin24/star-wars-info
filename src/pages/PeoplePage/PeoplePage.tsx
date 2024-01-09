@@ -21,7 +21,6 @@ const PeoplePage = ({ setIsError }: any) => {
   const getResource = useCallback(
     async (url: string) => {
       const res: IPeopleResponse = await getApiResource(url)
-      console.log(res)
 
       if (res) {
         const peopleLits = res.results.map(({ name, url }) => {

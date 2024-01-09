@@ -1,6 +1,7 @@
+import styles from "./Navigation.module.css"
 import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
-// import styles from "./Navigation.module.css"
+import Button from "@ui/Button"
 
 export interface INavigationProps {
   previousPage: string | null
@@ -28,13 +29,13 @@ const Navigation = (props: INavigationProps) => {
   }, [navigate, nextPage, currentPage, setCurrentPage])
 
   return (
-    <div>
-      <button onClick={handlePrevious} disabled={!previousPage}>
+    <div className={styles.container}>
+      <Button onClick={handlePrevious} disabled={!previousPage}>
         Previous
-      </button>
-      <button onClick={handleNext} disabled={!nextPage}>
+      </Button>
+      <Button onClick={handleNext} disabled={!nextPage}>
         Next
-      </button>
+      </Button>
     </div>
   )
 }
