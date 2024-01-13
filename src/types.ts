@@ -30,3 +30,13 @@ export interface IPeople {
   id: string
   imgUrl: string
 }
+
+enum PersonCharacters {
+  HAIR = "Hair",
+  MASS = "Mass",
+  HAIR_COLOR = "Hair Color",
+  SKIN_COLOR = "Skin Color",
+  EYE_COLOR = "Eye Color",
+  BIRTH_YEAR = "Birth Year",
+  GENDER = "Gender",
+}

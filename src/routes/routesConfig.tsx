@@ -2,16 +2,19 @@ import { RouteProps } from "react-router-dom"
 import HomePage from "@/pages/HomePage"
 import PeoplePage from "@/pages/PeoplePage"
 import NotFoundPage from "@/pages/NotFoundPage"
+import PersonPage from "@/pages/PersonPage"
 
 export enum AppRoutes {
   HOME = "home",
   PEOPLE = "people",
+  PERSON = "person",
   NOT_FOUND = "not-found",
 }
 
 export const RoutesPats: Record<AppRoutes, string> = {
   [AppRoutes.HOME]: "/",
   [AppRoutes.PEOPLE]: "/people",
+  [AppRoutes.PERSON]: "/people/:id",
   [AppRoutes.NOT_FOUND]: "*",
 }
 
@@ -23,6 +26,10 @@ export const routerConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.PEOPLE]: {
     path: RoutesPats.people,
     element: <PeoplePage />,
+  },
+  [AppRoutes.PERSON]: {
+    path: RoutesPats.person,
+    element: <PersonPage />,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutesPats["not-found"],

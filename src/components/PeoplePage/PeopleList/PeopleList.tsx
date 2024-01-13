@@ -1,4 +1,5 @@
 import styles from "./PeopleList.module.css"
+import { Link } from "react-router-dom"
 import { IPeople } from "@/types"
 
 export interface IPeopleListProps {
@@ -12,10 +13,10 @@ const PeopleList = (props: IPeopleListProps) => {
     <ul className={styles.list}>
       {people.map(({ name, url, id, imgUrl }) => (
         <li key={id} className={styles.item}>
-          <a href={url} target="_blank" className={styles.item__link}>
+          <Link to={`/people/${id}`} className={styles.item__link}>
             <img src={imgUrl} alt={name} className={styles.item__img} />
             <p className={styles.item__text}>{name}</p>
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
