@@ -9,10 +9,12 @@ import {
 } from "@/constants/api"
 import { IPeopleData } from "@/types"
 import { withErrorApi } from "@/hoc/withErrorApi"
+import PersonInfo from "@/components/PersonPage/PersonInfo"
+import PersonImage from "@/components/PersonPage/PersonImage"
 
 const PersonPage: React.FC = ({ setIsError }: any) => {
   const { id } = useParams<{ id: string }>()
-  const [peronData, setPeronData] = useState<
+  const [personData, setPersonData] = useState<
     { title: string; data: string }[] | null
   >(null)
   const [personName, setPersonName] = useState<string | null>(null)
@@ -23,7 +25,7 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
       const res: IPeopleData = await getApiResource(`${API_PERSON}/${id}`)
       if (res) {
         setIsError(false)
-        setPeronData([
+        setPersonData([
           { title: "Height", data: res.height },
           { title: "Mass", data: res.mass },
           { title: "Hair Color", data: res.hair_color },
@@ -43,20 +45,10 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
   return (
     <>
       <h1>{personName}</h1>
-      {imgUrl && <img src={imgUrl} alt={personName || "person"} />}
-      <ul>
-        {peronData &&
-          peronData.map(
-            ({ data, title }) =>
-              data && (
-                <li key={title}>
-                  <span>
-                    {title}: {data}
-                  </span>
-                </li>
-              ),
-          )}
-      </ul>
+      {imgUrl && (
+        <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
+      )}
+      <ul>{personData && <PersonInfo personData={personData} />}</ul>
     </>
   )
 }
