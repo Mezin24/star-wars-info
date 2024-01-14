@@ -43,13 +43,15 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
   }, [])
 
   return (
-    <>
-      <h1>{personName}</h1>
-      {imgUrl && (
-        <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
-      )}
-      <ul>{personData && <PersonInfo personData={personData} />}</ul>
-    </>
+    <div className={styles.wrapper}>
+      <span className={styles.name}>{personName}</span>
+      <div className={styles.container}>
+        {imgUrl && (
+          <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
+        )}
+        <ul>{personData && <PersonInfo personData={personData} />}</ul>
+      </div>
+    </div>
   )
 }
 
