@@ -1,0 +1,7 @@
+.link {
+  color: var(--color-yellow);
+  display:inline-flex;
+  align-items: center;
+  font-size: var(--font-size-subheader);
+  font-weight: var(--font-bold);
+}

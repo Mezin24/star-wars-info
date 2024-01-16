@@ -11,6 +11,7 @@ import { IPeopleData } from "@/types"
 import { withErrorApi } from "@/hoc/withErrorApi"
 import PersonInfo from "@/components/PersonPage/PersonInfo"
 import PersonImage from "@/components/PersonPage/PersonImage"
+import LinkBack from "@/components/PersonPage/LinkBack"
 
 const PersonPage: React.FC = ({ setIsError }: any) => {
   const { id } = useParams<{ id: string }>()
@@ -43,15 +44,18 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
   }, [])
 
   return (
-    <div className={styles.wrapper}>
-      <span className={styles.name}>{personName}</span>
-      <div className={styles.container}>
-        {imgUrl && (
-          <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
-        )}
-        {personData && <PersonInfo personData={personData} />}
+    <>
+      <LinkBack />
+      <div className={styles.wrapper}>
+        <span className={styles.name}>{personName}</span>
+        <div className={styles.container}>
+          {imgUrl && (
+            <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
+          )}
+          {personData && <PersonInfo personData={personData} />}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
