@@ -49,7 +49,7 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
         {imgUrl && (
           <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
         )}
-        <ul>{personData && <PersonInfo personData={personData} />}</ul>
+        {personData && <PersonInfo personData={personData} />}
       </div>
     </div>
   )

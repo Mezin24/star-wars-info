@@ -7,15 +7,20 @@ export interface IPersonInfoProps {
 const PersonInfo = (props: IPersonInfoProps) => {
   const { personData } = props
 
-  return personData.map(
-    ({ data, title }) =>
-      data && (
-        <li key={title}>
-          <span>
-            {title}: {data}
-          </span>
-        </li>
-      ),
+  return (
+    <div className={styles.wrapper}>
+      <ul className={styles.list}>
+        {personData.map(
+          ({ data, title }) =>
+            data && (
+              <li key={title} className={styles.item}>
+                <span className={styles.title}>{title}: </span>
+                {data}
+              </li>
+            ),
+        )}
+      </ul>
+    </div>
   )
 }
 
