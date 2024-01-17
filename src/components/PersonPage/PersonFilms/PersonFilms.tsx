@@ -17,8 +17,11 @@ const PersonFilms = (props: IPersonFilmsProps) => {
 
   useEffect(() => {
     ;(async () => {
-      const formtedUrls = personFilms.map((url) => replaceProtocol(url))
-      const responses: IFilmNames[] = await makeConcurentRequest(formtedUrls)
+      // const formtedUrls = personFilms
+      //   .map((url) => replaceProtocol(url))
+      //   .filter((url) => url !== null)
+
+      const responses: IFilmNames[] = await makeConcurentRequest(personFilms)
       setFilmNames(responses)
     })()
   }, [personFilms])

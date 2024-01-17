@@ -29,12 +29,12 @@ export const getApiResource = async (url: string) => {
 
 /**
  * Update http protocol on https
- * @param url - string  for updating protocol
+ * @param url - string or null for updating protocol
  * @returns return  updated url with https protocol
  */
 
 export const replaceProtocol = (url: string) => {
-  return url ? url : url.replace(HTTP, HTTPS)
+  return url ? (url.includes(HTTPS) ? url : url.replace(HTTP, HTTPS)) : null
 }
 
 /**

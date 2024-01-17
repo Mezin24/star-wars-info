@@ -12,6 +12,7 @@ import { withErrorApi } from "@/hoc/withErrorApi"
 import PersonInfo from "@/components/PersonPage/PersonInfo"
 import PersonImage from "@/components/PersonPage/PersonImage"
 import LinkBack from "@/components/PersonPage/LinkBack"
+import Loader from "@/components/UI/Loader"
 
 const PersonFilms = lazy(() => import("@/components/PersonPage/PersonFilms"))
 
@@ -58,7 +59,7 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
           )}
           {personData && <PersonInfo personData={personData} />}
           {personFilms && (
-            <Suspense fallback={<h1 style={{ color: "white" }}>Loading...</h1>}>
+            <Suspense fallback={<Loader theme="white" hasShadow />}>
               <PersonFilms personFilms={personFilms} />
             </Suspense>
           )}
