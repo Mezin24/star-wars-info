@@ -12,6 +12,7 @@ import { withErrorApi } from "@/hoc/withErrorApi"
 import PersonInfo from "@/components/PersonPage/PersonInfo"
 import PersonImage from "@/components/PersonPage/PersonImage"
 import LinkBack from "@/components/PersonPage/LinkBack"
+import PersonFilms from "@/components/PersonPage/PersonFilms"
 
 const PersonPage: React.FC = ({ setIsError }: any) => {
   const { id } = useParams<{ id: string }>()
@@ -20,6 +21,7 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
   >(null)
   const [personName, setPersonName] = useState<string | null>(null)
   const [imgUrl, setImgUrl] = useState<string | null>(null)
+  const [personFilms, setPersonFilms] = useState<string[]>([])
 
   useEffect(() => {
     ;(async () => {
@@ -37,6 +39,7 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
         ])
         setPersonName(res.name)
         setImgUrl(URL_IMG_PERSON + id + GUIDE_IMG_EXTENSION)
+        res.films.length && setPersonFilms(res.films)
       } else {
         setIsError(true)
       }
@@ -53,6 +56,7 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
             <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
           )}
           {personData && <PersonInfo personData={personData} />}
+          {personFilms && <PersonFilms personFilms={personFilms} />}
         </div>
       </div>
     </>
