@@ -6,7 +6,9 @@
 
   --color-blue: #6a83fb;
   --color-violet: #ae72c2;
+  --color-pink: #f75d83;
 
+  --spacing-extrasmall: 4px;
   --spacing-small: 6px;
   --spacing-medium: 20px;
   --spacing-large: 30px;

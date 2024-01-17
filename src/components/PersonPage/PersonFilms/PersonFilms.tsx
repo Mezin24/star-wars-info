@@ -24,15 +24,15 @@ const PersonFilms = (props: IPersonFilmsProps) => {
   }, [personFilms])
 
   return (
-    <div>
-      <ul>
+    <div className={styles.wrapper}>
+      <ul className={styles.list}>
         {filmNames
           .sort((a, b) => a.episode_id - b.episode_id)
           .map(({ episode_id, title }) => (
-            <li key={episode_id}>
-              <span>Episode {episode_id}</span>
-              <span> : </span>
-              <span>{title}</span>
+            <li key={episode_id} className={styles.item}>
+              <span className={styles.episod}>Episode {episode_id}</span>
+              <span className={styles.colon}> : </span>
+              <span className={styles.title}>{title}</span>
             </li>
           ))}
       </ul>
