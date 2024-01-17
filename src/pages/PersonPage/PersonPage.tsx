@@ -1,6 +1,6 @@
 import styles from "./PersonPage.module.css"
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense, lazy } from "react"
 import { getApiResource } from "@/utils/api"
 import {
   API_PERSON,
@@ -12,7 +12,8 @@ import { withErrorApi } from "@/hoc/withErrorApi"
 import PersonInfo from "@/components/PersonPage/PersonInfo"
 import PersonImage from "@/components/PersonPage/PersonImage"
 import LinkBack from "@/components/PersonPage/LinkBack"
-import PersonFilms from "@/components/PersonPage/PersonFilms"
+
+const PersonFilms = lazy(() => import("@/components/PersonPage/PersonFilms"))
 
 const PersonPage: React.FC = ({ setIsError }: any) => {
   const { id } = useParams<{ id: string }>()
@@ -56,7 +57,11 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
             <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
           )}
           {personData && <PersonInfo personData={personData} />}
-          {personFilms && <PersonFilms personFilms={personFilms} />}
+          {personFilms && (
+            <Suspense fallback={<h1 style={{ color: "white" }}>Loading...</h1>}>
+              <PersonFilms personFilms={personFilms} />
+            </Suspense>
+          )}
         </div>
       </div>
     </>
