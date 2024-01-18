@@ -55,7 +55,11 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
         <span className={styles.name}>{personName}</span>
         <div className={styles.container}>
           {imgUrl && (
-            <PersonImage imgUrl={imgUrl} personName={personName || "person"} />
+            <PersonImage
+              imgUrl={imgUrl}
+              personName={personName || "person"}
+              id={id!}
+            />
           )}
           {personData && <PersonInfo personData={personData} />}
           {personFilms && (

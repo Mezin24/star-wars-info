@@ -1,3 +1,6 @@
+import { favoritesAdapter } from "./favoritesSlice"
 import { RootState } from "@/app/store"
 
-export const getFavorites = (state: RootState) => state.favorites
+export const favoritesSelectors = favoritesAdapter.getSelectors(
+  (state: RootState) => state.favorites,
+)

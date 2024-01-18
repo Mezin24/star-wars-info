@@ -2,7 +2,7 @@ import ErrorMessage from "@components/ErrorMessage"
 import { useState } from "react"
 
 export interface InjectedProps {
-  setIsError: React.Dispatch<React.SetStateAction<boolean>>
+  setIsError?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const withErrorApi = <T extends InjectedProps>(
