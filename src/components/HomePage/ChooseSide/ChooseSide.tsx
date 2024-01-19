@@ -1,4 +1,7 @@
 import styles from "./ChooseSide.module.css"
+import darkIcon from "./img/droid.svg"
+import lightIcon from "./img/lightsaber.svg"
+import neutralIcon from "./img/space-station.svg"
 import { useThemeContext } from "@/context/ThemeContext"
 
 const ChooseSide: React.FC = () => {
