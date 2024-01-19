@@ -30,7 +30,8 @@
       "@pages/*": ["src/pages/*"],
       "@services/*": ["src/services/*"],
       "@utils/*": ["src/utils/*"],
-      "@routes/*": ["src/routes/*"]
+      "@routes/*": ["src/routes/*"],
+      "@context/*": ["src/context/*"]
     }
   },
   "include": ["src"],
