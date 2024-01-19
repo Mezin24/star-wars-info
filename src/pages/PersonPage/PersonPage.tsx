@@ -13,11 +13,17 @@ import PersonInfo from "@/components/PersonPage/PersonInfo"
 import PersonImage from "@/components/PersonPage/PersonImage"
 import LinkBack from "@/components/PersonPage/LinkBack"
 import Loader from "@/components/UI/Loader"
+import { favoritesSelectors } from "@/features/favorites/favoritesSelectors"
+import { useAppSelector } from "@/app/hooks"
 
 const PersonFilms = lazy(() => import("@/components/PersonPage/PersonFilms"))
 
 const PersonPage: React.FC = ({ setIsError }: any) => {
   const { id } = useParams<{ id: string }>()
+  const isFavorite = useAppSelector((state) =>
+    favoritesSelectors.selectById(state, id!),
+  )
+
   const [personData, setPersonData] = useState<
     { title: string; data: string }[] | null
   >(null)
@@ -28,6 +34,7 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
   useEffect(() => {
     ;(async () => {
       const res: IPeopleData = await getApiResource(`${API_PERSON}/${id}`)
+
       if (res) {
         setIsError(false)
         setPersonData([
@@ -59,6 +66,7 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
               imgUrl={imgUrl}
               personName={personName || "person"}
               id={id!}
+              isFavorite={isFavorite as boolean}
             />
           )}
           {personData && <PersonInfo personData={personData} />}
