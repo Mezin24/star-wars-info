@@ -1,24 +1,39 @@
 import { Theme } from "./types"
-import { ReactNode, createContext, useContext, useState } from "react"
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+} from "react"
+import { changeCSSVariables } from "@/services/changeCSSVariables"
 
 interface IThemeContext {
   theme: Theme
-  setTheme: (theme: Theme) => void
+  changeTheme: (theme: Theme) => void
 }
 
 const ThemeContext = createContext<IThemeContext>({
   theme: "dark",
-  setTheme: (theme: Theme) => {},
+  changeTheme: (theme: Theme) => {},
 })
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>("dark")
 
+  const changeTheme = useCallback(
+    (theme: Theme) => {
+      setTheme(theme)
+      changeCSSVariables(theme)
+    },
+    [setTheme],
+  )
+
   return (
     <ThemeContext.Provider
       value={{
         theme,
-        setTheme,
+        changeTheme,
       }}
     >
       {children}

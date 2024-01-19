@@ -1,17 +1,15 @@
 import styles from "./ChooseSide.module.css"
-import darkIcon from "./img/droid.svg"
-import lightIcon from "./img/lightsaber.svg"
-import neutralIcon from "./img/space-station.svg"
 import { useThemeContext } from "@/context/ThemeContext"
 
 const ChooseSide: React.FC = () => {
-  const { theme, setTheme } = useThemeContext()
+  const { theme, changeTheme } = useThemeContext()
+
   return (
     <div>
       <h1>Theme: {theme}</h1>
-      <button onClick={() => setTheme("dark")}>Dark</button>
-      <button onClick={() => setTheme("light")}>light</button>
-      <button onClick={() => setTheme("neutral")}>neutral</button>
+      <button onClick={() => changeTheme("dark")}>Dark</button>
+      <button onClick={() => changeTheme("light")}>light</button>
+      <button onClick={() => changeTheme("neutral")}>neutral</button>
     </div>
   )
 }
