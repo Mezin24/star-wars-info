@@ -58,25 +58,31 @@ const PersonPage: React.FC = ({ setIsError }: any) => {
   return (
     <>
       <LinkBack />
-      <div className={styles.wrapper}>
-        <span className={styles.name}>{personName}</span>
-        <div className={styles.container}>
-          {imgUrl && (
-            <PersonImage
-              imgUrl={imgUrl}
-              personName={personName || "person"}
-              id={id!}
-              isFavorite={isFavorite as boolean}
-            />
-          )}
-          {personData && <PersonInfo personData={personData} />}
-          {personFilms && (
-            <Suspense fallback={<Loader theme="white" hasShadow />}>
-              <PersonFilms personFilms={personFilms} />
-            </Suspense>
-          )}
+      {personData ? (
+        <div className={styles.wrapper}>
+          <span className={styles.name}>{personName}</span>
+          <div className={styles.container}>
+            {imgUrl && (
+              <PersonImage
+                imgUrl={imgUrl}
+                personName={personName || "person"}
+                id={id!}
+                isFavorite={isFavorite as boolean}
+              />
+            )}
+            {personData && <PersonInfo personData={personData} />}
+            {personFilms && (
+              <Suspense fallback={<Loader theme="white" hasShadow />}>
+                <PersonFilms personFilms={personFilms} />
+              </Suspense>
+            )}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className={styles.loaderContainer}>
+          <Loader />
+        </div>
+      )}
     </>
   )
 }

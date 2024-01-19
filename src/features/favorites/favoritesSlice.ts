@@ -1,15 +1,16 @@
-import { FavoritePerson } from "./types"
 import _ from "lodash"
 import {
   PayloadAction,
   createEntityAdapter,
   createSlice,
 } from "@reduxjs/toolkit"
+import { getFromLocalStorage } from "@/utils/localStorage"
+import { LOCAL_STORAGE_KEY } from "@/constants/store"
 
 export const favoritesAdapter = createEntityAdapter()
 
 // По умолчанию: { ids: [], entities: {} }
-const initialState = favoritesAdapter.getInitialState()
+const initialState = getFromLocalStorage(LOCAL_STORAGE_KEY)
 
 export const favoritesSlice = createSlice({
   name: "favorites",

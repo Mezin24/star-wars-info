@@ -19,3 +19,9 @@
   flex-wrap: wrap;
   border-bottom-left-radius: var(--border-radius-small);
 }
+
+.loaderContainer {
+  margin-top: var(--spacing-large);
+  display: flex;
+  justify-content: center;
+}

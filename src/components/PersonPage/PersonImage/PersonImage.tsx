@@ -23,7 +23,7 @@ const PersonImage = (props: IPersonImageProps) => {
     if (isFavorite) {
       dispatch(removeFromFavorites(id))
     } else {
-      dispatch(addToFavorites({ img: imgUrl, name: personName, id }))
+      dispatch(addToFavorites({ imgUrl, name: personName, id }))
     }
   }, [dispatch, id, imgUrl, isFavorite, personName])
 

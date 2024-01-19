@@ -1,3 +1,4 @@
+import styles from "./PeoplePage.module.css"
 import { useCallback, useEffect, useState } from "react"
 import { withErrorApi } from "@hoc/withErrorApi"
 import PeopleList from "@components/PeoplePage/PeopleList"
@@ -11,6 +12,7 @@ import { IPeople, IPeopleResponse } from "@/types"
 import { getApiResource, replaceProtocol } from "@/utils/api"
 import { useQueryParams } from "@/hooks/useQueryParams"
 import Navigation from "@/components/Navigation"
+import Loader from "@/components/UI/Loader"
 
 const PeoplePage = ({ setIsError }: any) => {
   const [people, setPeople] = useState<IPeople[] | null>(null)
@@ -35,8 +37,8 @@ const PeoplePage = ({ setIsError }: any) => {
         })
         setIsError(false)
         setPeople(peopleLits)
-        setNextPage(replaceProtocol(res.next))
-        setPreviousPage(replaceProtocol(res.previous))
+        setNextPage(replaceProtocol(res.next as string))
+        setPreviousPage(replaceProtocol(res.previous as string))
         setCurrentPage(getPeoplePageId(url))
       } else {
         setIsError(true)
@@ -57,7 +59,14 @@ const PeoplePage = ({ setIsError }: any) => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
-      {people && <PeopleList people={people} />}
+      {people ? (
+        <PeopleList people={people} />
+      ) : (
+        <div className={styles.loaderContainer}>
+          {" "}
+          <Loader />
+        </div>
+      )}
     </>
   )
 }

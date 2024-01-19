@@ -1,6 +1,7 @@
 import styles from "./PersonFilms.module.css"
 import { useEffect, useState } from "react"
 import { makeConcurentRequest, replaceProtocol } from "@/utils/api"
+import Loader from "@/components/UI/Loader"
 
 interface IFilmNames {
   title: string
@@ -13,7 +14,7 @@ export interface IPersonFilmsProps {
 
 const PersonFilms = (props: IPersonFilmsProps) => {
   const { personFilms } = props
-  const [filmNames, setFilmNames] = useState<IFilmNames[]>([])
+  const [filmNames, setFilmNames] = useState<IFilmNames[] | null>(null)
 
   useEffect(() => {
     ;(async () => {
@@ -29,15 +30,19 @@ const PersonFilms = (props: IPersonFilmsProps) => {
   return (
     <div className={styles.wrapper}>
       <ul className={styles.list}>
-        {filmNames
-          .sort((a, b) => a.episode_id - b.episode_id)
-          .map(({ episode_id, title }) => (
-            <li key={episode_id} className={styles.item}>
-              <span className={styles.episod}>Episode {episode_id}</span>
-              <span className={styles.colon}> : </span>
-              <span className={styles.title}>{title}</span>
-            </li>
-          ))}
+        {filmNames ? (
+          filmNames
+            .sort((a, b) => a.episode_id - b.episode_id)
+            .map(({ episode_id, title }) => (
+              <li key={episode_id} className={styles.item}>
+                <span className={styles.episod}>Episode {episode_id}</span>
+                <span className={styles.colon}> : </span>
+                <span className={styles.title}>{title}</span>
+              </li>
+            ))
+        ) : (
+          <Loader theme="white" hasShadow />
+        )}
       </ul>
     </div>
   )
