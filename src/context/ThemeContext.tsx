@@ -1,9 +1,11 @@
+import { THEME_STORAGE_KEY } from "./constants"
 import { Theme } from "./types"
 import {
   ReactNode,
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useState,
 } from "react"
 import { changeCSSVariables } from "@/services/changeCSSVariables"
@@ -18,8 +20,10 @@ const ThemeContext = createContext<IThemeContext>({
   changeTheme: (theme: Theme) => {},
 })
 
+const initialTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme
+
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>("dark")
+  const [theme, setTheme] = useState<Theme>(initialTheme || "dark")
 
   const changeTheme = useCallback(
     (theme: Theme) => {
@@ -28,6 +32,11 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     },
     [setTheme],
   )
+
+  useEffect(() => {
+    localStorage.setItem(THEME_STORAGE_KEY, theme)
+    changeCSSVariables(theme)
+  }, [theme])
 
   return (
     <ThemeContext.Provider

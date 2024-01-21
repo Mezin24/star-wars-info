@@ -1,15 +1,48 @@
 import styles from "./ChooseSide.module.css"
-import { useThemeContext } from "@/context/ThemeContext"
+import lightSide from "./img/light-side.jpg"
+import darktSide from "./img/dark-side.jpg"
+import neutralSide from "./img/falcon.jpg"
+import ChooseSideItem from "../ChooseSideItem"
+import { Theme } from "@/context/types"
 
 const ChooseSide: React.FC = () => {
-  const { theme, changeTheme } = useThemeContext()
+  const sideItems: {
+    img: string
+    title: string
+    theme: Theme
+    classes: string
+  }[] = [
+    {
+      img: lightSide,
+      title: "Light Side",
+      theme: "light",
+      classes: styles.item_light,
+    },
+    {
+      img: darktSide,
+      title: "Dark Side",
+      theme: "dark",
+      classes: styles.item_dark,
+    },
+    {
+      img: neutralSide,
+      title: "I'm Han Solo",
+      theme: "neutral",
+      classes: styles.item_neutral,
+    },
+  ]
 
   return (
-    <div>
-      <h1>Theme: {theme}</h1>
-      <button onClick={() => changeTheme("dark")}>Dark</button>
-      <button onClick={() => changeTheme("light")}>light</button>
-      <button onClick={() => changeTheme("neutral")}>neutral</button>
+    <div className={styles.container}>
+      {sideItems.map(({ img, theme, title, classes }) => (
+        <ChooseSideItem
+          img={img}
+          theme={theme}
+          title={title}
+          key={title}
+          classes={classes}
+        />
+      ))}
     </div>
   )
 }
