@@ -1,0 +1,10 @@
+.loaderContainer {
+  margin-top: var(--spacing-large);
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  margin-top: var(--spacing-large);
+  margin-bottom: 50px;
+}

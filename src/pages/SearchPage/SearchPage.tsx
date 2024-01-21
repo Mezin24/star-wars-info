@@ -1,5 +1,7 @@
+import styles from "./SearchPage.module.css"
 import { useCallback, useEffect, useState } from "react"
 import SearchPageInfo from "@/components/SearchPage/SearchPageInfo"
+import Loader from "@/components/UI/Loader"
 import {
   API_SEARCH,
   GUIDE_IMG_EXTENSION,
@@ -9,13 +11,16 @@ import { withErrorApi } from "@/hoc/withErrorApi"
 import { getIdFromUrl } from "@/services/getPeopleData"
 import { IPeople, IPeopleData } from "@/types"
 import { getApiResource } from "@/utils/api"
+import Input from "@/components/UI/Input"
 
 const SearchPage: React.FC = ({ setIsError }: any) => {
   const [value, setValue] = useState("")
   const [people, setPeople] = useState<IPeople[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const getResource = useCallback(
     async (params: string) => {
+      setIsLoading(true)
       const res: { results: IPeopleData[] } = await getApiResource(
         API_SEARCH + params,
       )
@@ -35,15 +40,15 @@ const SearchPage: React.FC = ({ setIsError }: any) => {
       } else {
         setIsError(true)
       }
+      setIsLoading(false)
     },
     [setIsError],
   )
 
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const inputValue = e.target.value
-      setValue(inputValue)
-      getResource(inputValue)
+    (value: string) => {
+      setValue(value)
+      getResource(value)
     },
     [getResource],
   )
@@ -55,13 +60,19 @@ const SearchPage: React.FC = ({ setIsError }: any) => {
   return (
     <div>
       <h1 className="header__text">SearchPage</h1>
-      <input
-        type="text"
+      <Input
         value={value}
-        onChange={handleChange}
-        placeholder="Input person search params"
+        handleChange={handleChange}
+        placeholder="Input character's name"
+        classes={styles.input}
       />
-      <SearchPageInfo people={people} />
+      {isLoading ? (
+        <div className={styles.loaderContainer}>
+          <Loader />
+        </div>
+      ) : (
+        <SearchPageInfo people={people} />
+      )}
     </div>
   )
 }
