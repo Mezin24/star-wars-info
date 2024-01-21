@@ -4,7 +4,10 @@ export const HTTPS = "https"
 const SWAPI_BASE_URL = "https://swapi.dev/api/"
 const SWAPI_PEOPLE = "people"
 const SWAPI_PAGE_PARAM = "/?page="
+const SWAPI_PAGE_SEARCH = "/?search="
+
 export const API_PEOPLE = SWAPI_BASE_URL + SWAPI_PEOPLE + SWAPI_PAGE_PARAM
+export const API_SEARCH = SWAPI_BASE_URL + SWAPI_PEOPLE + SWAPI_PAGE_SEARCH
 export const API_PERSON = SWAPI_BASE_URL + SWAPI_PEOPLE
 
 const GUIDE_BASE_URL = "https://starwars-visualguide.com/assets/img/"
