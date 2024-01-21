@@ -44,6 +44,9 @@ const Header: React.FC = () => {
         <li>
           <NavLink to="/not-found">Not Found</NavLink>
         </li>
+        <li>
+          <NavLink to="/search">Search</NavLink>
+        </li>
       </ul>
       <Favorites />
     </header>

@@ -4,12 +4,14 @@ import PeoplePage from "@/pages/PeoplePage"
 import NotFoundPage from "@/pages/NotFoundPage"
 import PersonPage from "@/pages/PersonPage"
 import FavoritesPage from "@/pages/FavoritesPage"
+import SearchPage from "@/pages/SearchPage"
 
 export enum AppRoutes {
   HOME = "home",
   PEOPLE = "people",
   PERSON = "person",
   FAVORITES = "favorites",
+  SEARCH = "search",
   NOT_FOUND = "not-found",
 }
 
@@ -18,6 +20,7 @@ export const RoutesPats: Record<AppRoutes, string> = {
   [AppRoutes.PEOPLE]: "/people",
   [AppRoutes.PERSON]: "/people/:id",
   [AppRoutes.FAVORITES]: "/favorites",
+  [AppRoutes.SEARCH]: "/search",
   [AppRoutes.NOT_FOUND]: "*",
 }
 
@@ -37,6 +40,10 @@ export const routerConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.FAVORITES]: {
     path: RoutesPats.favorites,
     element: <FavoritesPage />,
+  },
+  [AppRoutes.SEARCH]: {
+    path: RoutesPats.search,
+    element: <SearchPage />,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutesPats["not-found"],

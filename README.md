@@ -3,5 +3,8 @@
 #### Stack
 
 - `React`, `TypeScript`
-- `Husky`
 - `Redux`, `ReduxToolkit`
+- `Normalization`
+- `ReactContext`, `CSS change variables`
+- `React Router Dom v6`
+- `Husky`, `PreCommitHooks`
