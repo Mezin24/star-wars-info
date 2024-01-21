@@ -1,5 +1,6 @@
 import styles from "./SearchPage.module.css"
 import { useCallback, useEffect, useState } from "react"
+import { debounce } from "lodash"
 import SearchPageInfo from "@/components/SearchPage/SearchPageInfo"
 import Loader from "@/components/UI/Loader"
 import {
@@ -45,12 +46,18 @@ const SearchPage: React.FC = ({ setIsError }: any) => {
     [setIsError],
   )
 
+  const debouncedGetResponse = useCallback(
+    debounce((value) => getResource(value), 300),
+    [],
+  )
+
   const handleChange = useCallback(
     (value: string) => {
       setValue(value)
-      getResource(value)
+      // getResource(value)
+      debouncedGetResponse(value)
     },
-    [getResource],
+    [debouncedGetResponse],
   )
 
   useEffect(() => {
