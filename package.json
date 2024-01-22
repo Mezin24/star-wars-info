@@ -2,21 +2,22 @@
   "name": "vite-template-redux",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://github.com/Mezin24/star-wars-info/",
   "type": "module",
   "scripts": {
+    "deploy": "npm run build && npm run build-storybook && npm run build:gh-pages",
+    "build-storybook": "storybook build -o ./build/storybook",
     "dev": "vite",
     "start": "vite",
     "build": "tsc && vite build",
     "build:gh-pages": "gh-pages -d build",
-    "deploy": "npm run build && npm run build:gh-pages",
     "preview": "vite preview",
     "test": "vitest",
     "format": "prettier --write .",
     "lint": "eslint .",
     "type-check": "tsc",
     "prepare": "husky install",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
