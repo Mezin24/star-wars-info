@@ -18,6 +18,7 @@ export default defineConfig({
     setupFiles: "src/setupTests",
     mockReset: true,
   },
+  base: "/star-wars-info/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
