@@ -81,12 +81,12 @@
         "error",
         {
           "groups": [
-            "index",
-            "sibling",
-            "parent",
             "internal",
             "external",
-            "builtin"
+            "builtin",
+            "parent",
+            "sibling",
+            "index"
           ]
         }
       ]

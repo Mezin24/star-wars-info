@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom"
 import styles from "./Favorites.module.css"
 import bookmarkImg from "./img/bookmark.svg"
-import { Link } from "react-router-dom"
 import { useAppSelector } from "@/app/hooks"
 import { favoritesSelectors } from "@/features/favorites/favoritesSelectors"
 

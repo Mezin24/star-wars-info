@@ -1,5 +1,5 @@
-import Loader, { ILoaderProps } from "./Loader"
 import type { Meta, StoryObj } from "@storybook/react"
+import Loader, { ILoaderProps } from "./Loader"
 
 const meta = {
   title: "UI-KIT/Loader",

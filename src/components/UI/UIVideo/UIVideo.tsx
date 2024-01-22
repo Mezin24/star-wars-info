@@ -1,6 +1,6 @@
-import styles from "./UIVideo.module.css"
 import { useEffect, useRef } from "react"
 import cn from "classnames"
+import styles from "./UIVideo.module.css"
 
 export type IPlaybackRate = 0.5 | 1 | 1.5 | 2
 

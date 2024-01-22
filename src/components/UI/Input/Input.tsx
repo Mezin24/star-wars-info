@@ -1,7 +1,7 @@
-import styles from "./Input.module.css"
-import clearIcon from "./img/cancel.svg"
 import { useCallback } from "react"
 import cn from "classnames"
+import styles from "./Input.module.css"
+import clearIcon from "./img/cancel.svg"
 
 export interface IInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

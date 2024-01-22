@@ -1,7 +1,7 @@
-import styles from "./Navigation.module.css"
 import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "@ui/Button"
+import styles from "./Navigation.module.css"
 
 export interface INavigationProps {
   previousPage: string | null

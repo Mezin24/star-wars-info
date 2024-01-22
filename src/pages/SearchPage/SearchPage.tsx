@@ -1,6 +1,6 @@
-import styles from "./SearchPage.module.css"
 import { useCallback, useEffect, useState } from "react"
 import { debounce } from "lodash"
+import styles from "./SearchPage.module.css"
 import SearchPageInfo from "@/components/SearchPage/SearchPageInfo"
 import Loader from "@/components/UI/Loader"
 import {

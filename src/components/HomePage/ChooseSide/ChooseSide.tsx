@@ -1,8 +1,8 @@
+import ChooseSideItem from "../ChooseSideItem"
 import styles from "./ChooseSide.module.css"
 import lightSide from "./img/light-side.jpg"
 import darktSide from "./img/dark-side.jpg"
 import neutralSide from "./img/falcon.jpg"
-import ChooseSideItem from "../ChooseSideItem"
 import { Theme } from "@/context/types"
 
 const ChooseSide: React.FC = () => {

@@ -1,5 +1,5 @@
-import styles from "../ChooseSide/ChooseSide.module.css"
 import cn from "classnames"
+import styles from "../ChooseSide/ChooseSide.module.css"
 import { Theme } from "@/context/types"
 import { useThemeContext } from "@/context/ThemeContext"
 

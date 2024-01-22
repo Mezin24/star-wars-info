@@ -1,6 +1,6 @@
+import UIVideo from "../UI/UIVideo"
 import styles from "./ErrorMessage.module.css"
 import video from "./video/han-solo.mp4"
-import UIVideo from "../UI/UIVideo"
 
 const ErrorMessage: React.FC = () => {
   return (

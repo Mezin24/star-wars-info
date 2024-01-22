@@ -1,7 +1,7 @@
+import { useCallback } from "react"
 import favoriteIcon from "./img/favorite.svg"
 import notFavoriteIcon from "./img/not-favorite.svg"
 import styles from "./PersonImage.module.css"
-import { useCallback } from "react"
 import { useAppDispatch } from "@/app/hooks"
 import {
   addToFavorites,

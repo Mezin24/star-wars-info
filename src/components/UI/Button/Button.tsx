@@ -1,7 +1,7 @@
-import styles from "./Button.module.css"
+import { ReactNode } from "react"
 import "../index.css"
 import cn from "classnames"
-import { ReactNode } from "react"
+import styles from "./Button.module.css"
 
 export type ButtonTheme = "dark" | "light"
 

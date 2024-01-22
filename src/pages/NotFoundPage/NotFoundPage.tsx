@@ -1,6 +1,6 @@
+import { useLocation } from "react-router-dom"
 import NotFoundImage from "./img/image.png"
 import styles from "./NotFoundPage.module.css"
-import { useLocation } from "react-router-dom"
 
 const NotFoundPage: React.FC = () => {
   const location = useLocation()

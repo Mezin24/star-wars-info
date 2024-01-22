@@ -1,7 +1,7 @@
-import styles from "./LinkBack.module.css"
 import { useCallback } from "react"
 import { SlArrowLeft } from "react-icons/sl"
 import { useNavigate } from "react-router-dom"
+import styles from "./LinkBack.module.css"
 
 const LinkBack: React.FC = () => {
   const navigate = useNavigate()

@@ -1,5 +1,5 @@
-import Button, { IButtonProps } from "./Button"
 import type { Meta, StoryObj } from "@storybook/react"
+import Button, { IButtonProps } from "./Button"
 
 const meta = {
   title: "UI-KIT/Button",

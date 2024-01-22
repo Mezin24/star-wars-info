@@ -1,6 +1,6 @@
+import type { Meta, StoryObj } from "@storybook/react"
 import UIVideo, { IUIVideoProps } from "./UIVideo"
 import video from "./video/han-solo.mp4"
-import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "UI-KIT/UIVideo",

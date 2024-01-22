@@ -1,5 +1,5 @@
-import styles from "./SearchPageInfo.module.css"
 import { Link } from "react-router-dom"
+import styles from "./SearchPageInfo.module.css"
 
 import { IPeople } from "@/types"
 

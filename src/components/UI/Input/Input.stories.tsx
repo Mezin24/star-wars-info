@@ -1,7 +1,7 @@
-import Input from "."
-import { IInputProps } from "./Input"
 import type { Meta, StoryObj } from "@storybook/react"
 import { useArgs } from "@storybook/preview-api"
+import { IInputProps } from "./Input"
+import Input from "."
 
 const meta = {
   title: "UI-KIT/Input",

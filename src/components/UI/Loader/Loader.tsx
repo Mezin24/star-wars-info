@@ -1,8 +1,8 @@
+import cn from "classnames"
 import styles from "./Loader.module.css"
 import loaderWhite from "./img/loaderWhite.svg"
 import loaderBlack from "./img/loaderBlack.svg"
 import loaderBlue from "./img/loaderBlue.svg"
-import cn from "classnames"
 
 type LoaderTheme = "dark" | "white" | "blue"
 

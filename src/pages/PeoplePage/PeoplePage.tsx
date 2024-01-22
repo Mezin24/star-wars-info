@@ -1,8 +1,8 @@
-import styles from "./PeoplePage.module.css"
 import { useCallback, useEffect, useState } from "react"
 import { withErrorApi } from "@hoc/withErrorApi"
 import PeopleList from "@components/PeoplePage/PeopleList"
 import { getIdFromUrl, getPeoplePageId } from "@services/getPeopleData"
+import styles from "./PeoplePage.module.css"
 import {
   API_PEOPLE,
   GUIDE_IMG_EXTENSION,

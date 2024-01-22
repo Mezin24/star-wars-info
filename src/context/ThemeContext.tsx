@@ -1,5 +1,3 @@
-import { THEME_STORAGE_KEY } from "./constants"
-import { Theme } from "./types"
 import {
   ReactNode,
   createContext,
@@ -8,6 +6,8 @@ import {
   useEffect,
   useState,
 } from "react"
+import { THEME_STORAGE_KEY } from "./constants"
+import { Theme } from "./types"
 import { changeCSSVariables } from "@/services/changeCSSVariables"
 
 interface IThemeContext {

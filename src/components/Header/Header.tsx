@@ -1,10 +1,10 @@
+import Favorites from "@components/Favorites"
+import { ReactNode, useEffect, useState } from "react"
+import { NavLink } from "react-router-dom"
 import styles from "./Header.module.css"
 import darkIcon from "./img/droid.svg"
 import lightIcon from "./img/lightsaber.svg"
 import neutralIcon from "./img/space-station.svg"
-import Favorites from "@components/Favorites"
-import { ReactNode, useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
 import { useThemeContext } from "@/context/ThemeContext"
 
 const Header: React.FC = () => {

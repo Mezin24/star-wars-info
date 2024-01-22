@@ -1,20 +1,20 @@
-import styles from "./PersonPage.module.css"
+import { Suspense, lazy, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { useEffect, useState, Suspense, lazy } from "react"
-import { getApiResource } from "@/utils/api"
+import styles from "./PersonPage.module.css"
+import { useAppSelector } from "@/app/hooks"
+import LinkBack from "@/components/PersonPage/LinkBack"
+import PersonImage from "@/components/PersonPage/PersonImage"
+import PersonInfo from "@/components/PersonPage/PersonInfo"
+import Loader from "@/components/UI/Loader"
 import {
   API_PERSON,
   GUIDE_IMG_EXTENSION,
   URL_IMG_PERSON,
 } from "@/constants/api"
-import { IPeopleData } from "@/types"
-import { withErrorApi } from "@/hoc/withErrorApi"
-import PersonInfo from "@/components/PersonPage/PersonInfo"
-import PersonImage from "@/components/PersonPage/PersonImage"
-import LinkBack from "@/components/PersonPage/LinkBack"
-import Loader from "@/components/UI/Loader"
 import { favoritesSelectors } from "@/features/favorites/favoritesSelectors"
-import { useAppSelector } from "@/app/hooks"
+import { withErrorApi } from "@/hoc/withErrorApi"
+import { IPeopleData } from "@/types"
+import { getApiResource } from "@/utils/api"
 
 const PersonFilms = lazy(() => import("@/components/PersonPage/PersonFilms"))
 

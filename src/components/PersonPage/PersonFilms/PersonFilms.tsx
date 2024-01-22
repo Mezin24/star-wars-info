@@ -1,5 +1,5 @@
-import styles from "./PersonFilms.module.css"
 import { useEffect, useState } from "react"
+import styles from "./PersonFilms.module.css"
 import { makeConcurentRequest, replaceProtocol } from "@/utils/api"
 import Loader from "@/components/UI/Loader"
 
