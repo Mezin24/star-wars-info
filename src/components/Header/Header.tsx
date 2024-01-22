@@ -8,7 +8,7 @@ import neutralIcon from "./img/space-station.svg"
 import { useThemeContext } from "@/context/ThemeContext"
 
 const Header: React.FC = () => {
-  const { theme, setTheme } = useThemeContext()
+  const { theme } = useThemeContext()
   const [themeIcon, setThemeIcon] = useState<string>(darkIcon)
 
   useEffect(() => {
